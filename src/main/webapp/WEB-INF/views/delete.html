@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Delete City</title>
+</head>
+<body>
+<div>
+
+
+    <center>
+        <h2 style="margin-top: 1%">CITY MANAGE</h2>
+        <h4 style="color: cornflowerblue">Delete City</h4>
+        <th:block th:if="messages">
+            <p th:text="${messages}" style="color: crimson"></p>
+        </th:block>
+    </center>
+    <form th:action="@{/delete}" th:object="${city}" method="post" style="margin-left: 5%">
+        <input th:type="hidden" name="id" th:field="*{cityId}">
+        <div class="cusdetail">
+            <label>Name:</label>
+            <label th:text="${city.cityName}"></label>
+        </div>
+        <div class="cusdetail">
+            <label>Price:</label>
+            <label th:text="${city.country}"></label>
+        </div>
+        <div class="cusdetail">
+            <label>Photo:</label>
+            <label th:text="${city.cityAcreage}"></label>
+        </div>
+        <div class="cusdetail">
+            <label>Description:</label>
+            <label th:text="${city.description}"></label>
+        </div>
+        <div class="cusdetail">
+            <label>Producer:</label>
+            <label th:text="${city.GDP}"></label>
+        </div>
+        <div class="cusdetail">
+            <label>Amount:</label>
+            <label th:text="${city.cityPopulation}"></label>
+        </div>
+
+        <input type="submit" value="Delete City" class="btn btn-outline-primary">
+        <button type="button" class="btn btn-outline-light">
+            <a href="/list">Back City List</a></button>
+    </form>
+
+</div>
+</body>
+</html>

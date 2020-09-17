@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>List City</title>
+</head>
+<body>
+
+
+<center>
+    <h2 style="margin-top: 1%">CITY MANAGE</h2>
+    <h4 style="color: cornflowerblue">List City</h4>
+    <th:block th:if="messages">
+        <p th:text="${messages}" style="color: darkviolet"></p>
+    </th:block>
+</center>
+
+<table class="table table-striped">
+    <tr>
+        <th >Name</th>
+        <th >Country</th>
+        <th >Edit</th>
+    </tr>
+    <th:block th:each="city : ${cities}">
+        <tr>
+            <td><a th:text="${city.cityName}" th:href="@{/view/__${city.cityId}__ }"></a></td>
+            <td th:text="${city.country}"></td>
+            <td><a th:href="@{/edit/__${city.cityId}__ }">Edit</a> | <a th:href="@{/delete/__${city.cityId}__ }">Delete</a></td>
+
+    </th:block>
+</table>
+<button type="button" class="btn btn-outline-light">
+    <a href="/create">Create City</a></button>
+</body>
+</html>
